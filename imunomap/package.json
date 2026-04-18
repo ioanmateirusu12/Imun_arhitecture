@@ -1,0 +1,45 @@
+{
+  "name": "imunomap",
+  "version": "1.0.0",
+  "description": "ImunoMap — Aplicație desktop profesională pentru imunologie: hartă interactivă a sistemului imun, genetică, biochimie și limbajul de programare ImmunoScript.",
+  "main": "main.js",
+  "author": "ImunoMap Project",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "dependencies": {
+    "cytoscape": "^3.28.1",
+    "cytoscape-cose-bilkent": "^4.1.0",
+    "cytoscape-fcose": "^2.2.0",
+    "cytoscape-popper": "^2.0.0",
+    "tippy.js": "^6.3.7",
+    "monaco-editor": "^0.45.0"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "org.imunomap.desktop",
+    "productName": "ImunoMap",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "mac": { "category": "public.app-category.education" },
+    "win": { "target": ["nsis", "portable"] },
+    "linux": { "target": ["AppImage", "deb"], "category": "Education" }
+  }
+}
